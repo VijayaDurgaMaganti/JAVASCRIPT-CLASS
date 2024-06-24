@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        //var a = fetch("");
+        //console.log(a);
+
+        //var prom = new Promise(function (resolve, reject) {
+        //    var a = true;
+        // if (a) {
+        //    resolve("It is true and correct");
+        //    }
+        //    else {
+        //       reject("it is false");
+        ///  }
+        //})
+        //console.log(prom);
+        //prom.then((val) => { console.log(val) })
+        // .catch((val) => { console.log(val) });
+
+        //async function Hello() {
+        // return await 'Hello Everyone';
+        //console.log("Hello Everyone");
+        //}
+        //console.log(Hello());
+        //fetching api get method  from regres.in
+        var a = fetch("https://reqres.in/api/users?page=2")
+        a.then((res) => {
+            console.log(res);
+            return res.json();
+        }).then((resJ) => {
+            console.log(resJ);
+        })
+
+        //POST
+        //METHODS,HEADERS,BODY
+        var b = fetch('https://reqres.in/api/users', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({
+                name: "John",
+                place: "Argentina",
+                age: 34
+            })
+        })
+        b.then((res) => {
+            console.log(res);
+            return res.json();
+        })
+            .then((resJ) => {
+                console.log(resJ);
+            })
+
+        //PUT METHOD
+        var b = fetch('https://reqres.in/api/users/2', {
+            method: 'PUT',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({
+                name: "Messi",
+                place: "Argentina",
+                age: 38
+            })
+        })
+        b.then((res) => {
+            console.log(res);
+            return res.json();
+        })
+            .then((resJ) => {
+                console.log(resJ);
+            })
+
+        //Delete Method
+        var b = fetch('https://reqres.in/api/users/2', {
+            method: 'DELETE',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({
+            })
+        })
+        b.then((res) => {
+            console.log(res);
+
+        })
+            .then((resJ) => {
+                console.log(resJ);
+            })
+    </script>
+
+</body>
+
+</html>

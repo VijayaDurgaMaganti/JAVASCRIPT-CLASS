@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FORM-VALIDATION</title>
+</head>
+
+<body>
+
+    <script>
+        function validateForm() {
+            var username = document.forms["myForm"]["username"].value;
+            var email = document.forms["myForm"]["email"].value;
+            var password = document.forms["myForm"]["password"].value;
+            var confirmPassword = document.forms["myForm"]["confirmPassword"].value;
+
+            var usernameRegex = /^[a-zA-Z0-9]{3,}$/;
+            var emailRegex = /^[a-z0-9]+@[a-z]+\.[a-z]{2,4}$/;
+            //react12@gmail.com
+            var passwordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d).{6,10}$/;
+
+            if (!usernameRegex.test(username)) {
+                alert("Invalid username format ,it must be minimum 3 letters");
+                return false;
+            }
+            if (!emailRegex.test(email)) {
+                alert("Invalid email format");
+                return false;
+            }
+            if (!passwordRegex.test(password)) {
+                alert("Invalid password, minimum 6 characters");
+                return false;
+            }
+            if (password !== confirmPassword) {
+                alert("Passwords doesnot match");
+                return false;
+            }
+
+            alert("Form Submitted Successfully !");
+            console.log(username);
+            console.log(email);
+            console.log(password);
+            console.log(confirmPassword);
+            return true;
+        }
+    </script>
+    <!--FORM DETAILS-->
+    <center>
+        <form name="myForm" onsubmit="return validateForm()">
+            <label>Enter Username</label><br />
+            <input type="text" placeholder="Enter Username" name="username" /><br />
+            <label>Enter EmailId</label><br>
+            <input type="email" placeholder="Enter Email" name="email" /><br />
+            <label>Enter Password</label><br />
+            <input type="password" placeholder="Enter Password" name="password" /><br />
+            <label>Enter confirmPassword</label><br />
+            <input type="password" placeholder="Enter ConfirmPassword" name="confirmPassword" /><br />
+            <button>Submit</button>
+        </form>
+    </center>
+
+</body>
+
+</html>

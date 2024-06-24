@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> WEATHER APPLICATION</title>
+    <link rel="icon"
+        href="https://www.dailyfreepsd.com/wp-content/uploads/2013/09/Animation-Weather-Icons-Pack-Illustration-Vector.gif" />
+    <link rel="stylesheet" href="./weather.css" />
+</head>
+
+<body>
+    <center class="formy">
+
+        <h1 class="hello">Weather Checking Website</h1><br /><br />
+        <form id="form">
+            <input type="text" id="input" placeholder="Enter the Place" />&nbsp;&nbsp;&nbsp;
+            <button class="btn" type="submit">Submit</button>
+        </form>
+
+        <div id="info">
+            <br /> <br />
+            <!--<p>City:${name}</p>
+<div>Temperature is: ${Math.round(main.temp)}<sup>0</sup>C</div>-->
+        </div>
+
+    </center>
+    <script>
+
+        const form = document.getElementById("form");
+        const input = document.getElementById("input");
+        const info = document.getElementById("info");
+        const apiKey = "2868cf014aab0757b3d8366ec4bd622c";
+        form.addEventListener("submit", (e) => {
+            e.preventDefault();
+            info.textContent = "";
+            const inputValue = input.value;
+            //alert(inputValue);
+            const url = `https://api.openweathermap.org/data/2.5/weather?q=${inputValue}&appid=${apiKey}&units=metric`;
+            fetch(url)
+                .then(response => response.json())
+                .then(data => {
+                    const { main, name } = data;
+                    const para = document.createElement("div");
+                    para.classList.add("city");
+                    const out = `<p class="hell">City:${name}</p> 
+                    <div class="temp">Temperature is: ${Math.round(main.temp)}<sup>o</sup>C</div>`;
+                    para.innerHTML = out;
+                    info.appendChild(para);
+
+                }).catch(() => {
+                    alert("Please Enter a Valid City");
+                });
+            form.reset();
+
+        });
+    </script>
+
+
+</body>
+
+</html>

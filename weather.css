@@ -1,0 +1,57 @@
+* {
+    box-sizing: border-box;
+    margin: 0%;
+}
+
+.btn {
+    color: white;
+    background-color: greenyellow;
+    font-family: bold;
+    padding: 1%;
+    padding-left: 2%;
+    padding-right: 2%;
+
+
+
+}
+
+.formy {
+    background-image: url('https://www.dailyfreepsd.com/wp-content/uploads/2013/09/Animation-Weather-Icons-Pack-Illustration-Vector.gif');
+    background-size: cover;
+    height: 100vh;
+    width: 100vw;
+    margin-top: fixed;
+    margin-bottom: fixed;
+
+}
+
+.hello {
+    color: aqua;
+    font-weight: bold;
+
+}
+
+.temp {
+    color: aquamarine;
+    font-size: 30px;
+    font-weight: bold;
+}
+
+.hell {
+    color: blue;
+    font-size: 40px;
+    font-weight: bold;
+}
+
+#input {
+    padding: 1%;
+    border: 2px;
+    font-family: bold;
+    padding-left: 3%;
+    padding-right: 3%;
+    color: white;
+    font-weight: 30px;
+    background-color: aqua;
+    margin: 0px solid black;
+
+}
